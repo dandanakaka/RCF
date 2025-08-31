@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { BookOpen, Award, Users, Calendar, Star } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const courses = [
   {
@@ -149,9 +150,11 @@ const AcademySection = () => {
             Get exclusive access to new courses, networking events, and continuing education credits.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button variant="outline" size="lg" className="bg-white text-primary border-white hover:bg-white/90">
-              Browse All Courses
-            </Button>
+            <Link to="/academy">
+              <Button variant="outline" size="lg" className="bg-white text-primary border-white hover:bg-white/90">
+                Browse All Courses
+              </Button>
+            </Link>
             <Button variant="outline" size="lg" className="bg-transparent text-white border-white hover:bg-white/10">
               Schedule Consultation
             </Button>
