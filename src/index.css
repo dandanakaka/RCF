@@ -1,42 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* Root Canal Foundation Design System - Clean, Medical, Trustworthy */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
-
+    /* Base neutrals - Clean and sterile */
+    --background: 210 20% 98%;
+    --foreground: 210 20% 15%;
+    
+    /* Card surfaces - Soft and welcoming */
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
-
+    --card-foreground: 210 20% 15%;
+    
+    /* Popover surfaces */
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
-
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
-
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
-
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
-
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
-
-    --radius: 0.5rem;
+    --popover-foreground: 210 20% 15%;
+    
+    /* Medical blue primary - Trustworthy and calming */
+    --primary: 200 85% 45%;
+    --primary-foreground: 0 0% 100%;
+    --primary-soft: 200 85% 95%;
+    
+    /* Calming teal secondary - Soothing accent */
+    --secondary: 175 60% 50%;
+    --secondary-foreground: 0 0% 100%;
+    --secondary-soft: 175 60% 95%;
+    
+    /* Muted tones - Subtle and professional */
+    --muted: 210 20% 96%;
+    --muted-foreground: 210 15% 45%;
+    
+    /* Success green - Reassuring feedback */
+    --success: 145 85% 45%;
+    --success-foreground: 0 0% 100%;
+    --success-soft: 145 85% 95%;
+    
+    /* Accent - Professional navy for CTAs */
+    --accent: 215 85% 25%;
+    --accent-foreground: 0 0% 100%;
+    --accent-soft: 215 85% 95%;
+    
+    /* Warning/alert - Soft orange for gentle attention */
+    --warning: 35 85% 55%;
+    --warning-foreground: 0 0% 100%;
+    --warning-soft: 35 85% 95%;
+    
+    /* Destructive - Muted red, not alarming */
+    --destructive: 0 65% 55%;
+    --destructive-foreground: 0 0% 100%;
+    
+    /* Borders and inputs - Subtle and clean */
+    --border: 210 20% 88%;
+    --input: 210 20% 94%;
+    --ring: 200 85% 45%;
+    
+    /* Radius for medical softness */
+    --radius: 0.75rem;
+    
+    /* Gradients for hero sections */
+    --gradient-primary: linear-gradient(135deg, hsl(200 85% 45%), hsl(175 60% 50%));
+    --gradient-soft: linear-gradient(135deg, hsl(200 85% 97%), hsl(175 60% 97%));
+    
+    /* Shadows for depth without harshness */
+    --shadow-soft: 0 4px 20px -4px hsl(200 85% 45% / 0.1);
+    --shadow-medium: 0 8px 30px -4px hsl(200 85% 45% / 0.15);
+    --shadow-card: 0 2px 15px -3px hsl(200 85% 45% / 0.08);
+    
+    /* Animation curves - Gentle and reassuring */
+    --ease-gentle: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    --ease-soft: cubic-bezier(0.23, 1, 0.32, 1);
 
     --sidebar-background: 0 0% 98%;
 
@@ -100,6 +136,48 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-inter antialiased;
+  }
+}
+
+@layer components {
+  /* Hero section styling */
+  .hero-gradient {
+    background: var(--gradient-primary);
+  }
+  
+  .hero-gradient-soft {
+    background: var(--gradient-soft);
+  }
+  
+  /* Card shadows */
+  .shadow-card {
+    box-shadow: var(--shadow-card);
+  }
+  
+  .shadow-soft {
+    box-shadow: var(--shadow-soft);
+  }
+  
+  .shadow-medium {
+    box-shadow: var(--shadow-medium);
+  }
+  
+  /* Gentle animations */
+  .transition-gentle {
+    transition: all 0.3s var(--ease-gentle);
+  }
+  
+  .transition-soft {
+    transition: all 0.4s var(--ease-soft);
+  }
+  
+  /* Interactive elements */
+  .hover-lift {
+    @apply transition-gentle hover:shadow-medium hover:-translate-y-1;
+  }
+  
+  .focus-ring {
+    @apply focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2;
   }
 }
